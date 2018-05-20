@@ -1,7 +1,9 @@
 # SqlLastMessages
 sqlite query for get last messages for all users
 
+
 This query to select last messages for every users in personal chats with exclude self user
+
 Table description:
 - id - id of message
 - created - date of message
