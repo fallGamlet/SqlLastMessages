@@ -1,0 +1,23 @@
+select * 
+from messages
+where id in (
+
+select id 
+from (
+	select id, max(created), user_id
+	from (
+		select id, max(created) as created, from_user_id as user_id
+		from messages
+		group by user_id
+		union
+		select id, max(created) as created, to_user_id as user_id
+		from messages
+		group by user_id
+	)
+	where user_id != '11111'
+	group by user_id
+)
+
+)
+
+order by created desc
